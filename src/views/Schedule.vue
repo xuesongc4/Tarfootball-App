@@ -7,7 +7,7 @@
             </div>
         </header>
         <div class="schedule q-pa-sm">
-            <ScheduleCard :key="$index" v-for="(data, $index) in scheduleGame" class="mt10 mb10" :data="data"></ScheduleCard>
+            <ScheduleCard :key="$index" v-for="(data, $index) in getSchedule" class="mt10 mb10" :data="data"></ScheduleCard>
         </div>
     </q-page>
 </template>
@@ -16,6 +16,7 @@
 
 <script>
     import ScheduleCard from '@/components/ScheduleCard.vue';
+    import {mapGetters, mapActions} from 'vuex';
     import axios from 'axios';
 
     export default {
@@ -30,28 +31,15 @@
             }
         },
         mounted() {
-            this.getScheduleID();
+            this.fetchDataSchedule()
         },
+        computed: mapGetters(['getSchedule']),
         methods: {
-            getScheduleID() {
-                const getSchedule = localStorage.getItem('scheduleID');
-                if (getSchedule) {
-                    this.scheduleID = JSON.parse(getSchedule);
-                    this.getGames();
-                } else {
-                    axios
-                        .get('https://www.tarfootball.com/wp-json/wp/v2/schedule?&team?slug=varsity')
-                        .then(response => {
-                            this.scheduleID = response.data.reverse();
-                            localStorage.setItem('scheduleID', JSON.stringify(response.data));
-                            this.getGames();
-                        })
-                }
-            },
+            ...mapActions(['fetchDataSchedule']),
             getGames() {
                 this.scheduleID.forEach((data) => {
                     axios
-                        .get(`https://www.tarfootball.com//wp-json/gc_rest/v1/metaboxer/${data.id}/schedule-team`)
+                        .get(`https://www.tarfootball.com/wp-json/gc_rest/v1/metaboxer/${data.id}/schedule-team`)
                         .then(response => {
                             this.scheduleGame.push(response.data);
                         })

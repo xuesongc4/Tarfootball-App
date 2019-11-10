@@ -37,11 +37,11 @@
     export default {
         name: 'PageHome',
         mounted() {
-            this.fetchData();
+            this.fetchDataPosts();
         },
         computed: mapGetters(['getPosts']),
         methods: {
-            ...mapActions(['fetchData']),
+            ...mapActions(['fetchDataPosts']),
             dateConvert(time) {
                 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
