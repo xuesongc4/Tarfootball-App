@@ -1,0 +1,151 @@
+//Margin Class
+.mt {
+  &0 {
+    margin-top: 0;
+  }
+  &10 {
+    margin-top: rem-calc(10);
+  }
+  &15 {
+    margin-top: rem-calc(15);
+  }
+  &20 {
+    margin-top: rem-calc(20);
+  }
+  &30 {
+    margin-top: rem-calc(30);
+  }
+  &40 {
+    margin-top: rem-calc(40);
+  }
+  &50 {
+    margin-top: rem-calc(50);
+  }
+  &60 {
+    margin-top: rem-calc(60);
+  }
+  &70 {
+    margin-top: rem-calc(70);
+  }
+  &80 {
+    margin-top: rem-calc(80);
+  }
+  &90 {
+    margin-top: rem-calc(90);
+  }
+  &100 {
+    margin-top: rem-calc(100);
+  }
+}
+
+.mb {
+  &0 {
+    margin-bottom: 0;
+  }
+  &10 {
+    margin-bottom: rem-calc(10);
+  }
+  &15 {
+    margin-bottom: rem-calc(15);
+  }
+  &20 {
+    margin-bottom: rem-calc(20);
+  }
+  &30 {
+    margin-bottom: rem-calc(30);
+  }
+  &40 {
+    margin-bottom: rem-calc(40);
+  }
+  &50 {
+    margin-bottom: rem-calc(50);
+  }
+  &60 {
+    margin-bottom: rem-calc(60);
+  }
+  &70 {
+    margin-bottom: rem-calc(70);
+  }
+  &80 {
+    margin-bottom: rem-calc(80);
+  }
+  &90 {
+    margin-bottom: rem-calc(90);
+  }
+  &100 {
+    margin-bottom: rem-calc(100);
+  }
+}
+
+//Padding Class
+.pt {
+  &10 {
+    padding-top: rem-calc(10);
+  }
+  &15 {
+    padding-top: rem-calc(15);
+  }
+  &20 {
+    padding-top: rem-calc(20);
+  }
+  &30 {
+    padding-top: rem-calc(30);
+  }
+  &40 {
+    padding-top: rem-calc(40);
+  }
+  &50 {
+    padding-top: rem-calc(50);
+  }
+  &60 {
+    padding-top: rem-calc(60);
+  }
+  &70 {
+    padding-top: rem-calc(70);
+  }
+  &80 {
+    padding-top: rem-calc(80);
+  }
+  &90 {
+    padding-top: rem-calc(90);
+  }
+  &100 {
+    padding-top: rem-calc(100);
+  }
+}
+
+.pb {
+  &10 {
+    padding-bottom: rem-calc(10);
+  }
+  &15 {
+    padding-bottom: rem-calc(15);
+  }
+  &20 {
+    padding-bottom: rem-calc(20);
+  }
+  &30 {
+    padding-bottom: rem-calc(30);
+  }
+  &40 {
+    padding-bottom: rem-calc(40);
+  }
+  &50 {
+    padding-bottom: rem-calc(50);
+  }
+  &60 {
+    padding-bottom: rem-calc(60);
+  }
+  &70 {
+    padding-bottom: rem-calc(70);
+  }
+  &80 {
+    padding-bottom: rem-calc(80);
+  }
+  &90 {
+    padding-bottom: rem-calc(90);
+  }
+  &100 {
+    padding-bottom: rem-calc(100);
+  }
+}

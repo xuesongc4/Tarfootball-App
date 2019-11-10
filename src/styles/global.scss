@@ -1,0 +1,141 @@
+@function rem-calc($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
+$primary: #082539;
+$secondary: #015ea0;
+$accent: #9C27B0;
+
+$positive: #3adb76;
+$negative: #cc4b37;
+$info: #31CCEC;
+$warning: #ffae00;
+
+$white: #FFF;
+$black: #0a0a0a;
+$light-gray: #EEEEEE;
+$gray: #E5E5E5;
+
+$breakpoint: 640px;
+
+
+@import "atomic/margin-padding";
+@import "components/content";
+@import "views/home";
+@import "views/schedule";
+@import "components/scheduleGame";
+
+* {
+  outline: none;
+}
+
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.title-1, .title-2, .title-3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-stretch: condensed;
+}
+
+.title-1 {
+  font-size: rem-calc(50);
+  line-height: rem-calc(50);
+  @media (min-width: $breakpoint){
+    font-size: rem-calc(75);
+    line-height: rem-calc(75);
+  }
+}
+
+.title-2 {
+  font-size: rem-calc(25);
+  line-height: rem-calc(25);
+}
+
+.title-3 {
+  font-size: rem-calc(18);
+  line-height: rem-calc(18);
+}
+
+.read-more {
+  text-transform: uppercase;
+  color: darkgray;
+  font-weight: 700;
+}
+
+.q-tabs{
+  background-color: $primary;
+}
+
+hr{
+  clear: both;
+  height: 0;
+  margin: 1.25rem auto;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #e9e9ea;
+  border-left: 0;
+}
+
+header{
+  background-color: $primary;
+  color: $white;
+  padding: 8px;
+  height: rem-calc(60);
+  img{
+    height: 100%;
+    margin-right: 10px;
+  }
+  .title-2{
+    position: relative;
+    padding-bottom: rem-calc(4);
+  }
+  .title-2::after{
+    content: "";
+    border: rem-calc(1) solid $white;
+    height: rem-calc(1);
+    width: calc(100% + 20px);
+    position: absolute;
+    bottom:0;
+    left: 0;
+  }
+}
+
+.button.white{
+  font-size: rem-calc(18);
+  display: block;
+  width: rem-calc(150);
+  margin: rem-calc(16) auto;
+  color:$white;
+  border: 1px solid $white;
+  padding: 10px 0;
+  &:hover{
+    background-color: rgba(255,255,255,.7);
+  }
+}
+.subscribe{
+  background: url("assets/footer-bg.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: rem-calc(16);
+  color: $white;
+}
+
+.copy-right{
+  text-align: center;
+  background-color: #111111;
+  color: $white;
+  font-size: rem-calc(12);
+  padding: rem-calc(16);
+}
+
+#app{
+  max-width: 1024px;
+  margin: auto;
+}

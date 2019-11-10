@@ -1,0 +1,85 @@
+.game-description, .game-header{
+  height: rem-calc(30);
+  padding: rem-calc(4) rem-calc(20);
+}
+
+.game-header{
+  text-align: center;
+  background-color: $secondary;
+  color: $white;
+}
+
+.game-description{
+  text-align: center;
+  background-color: $gray;
+  color: darkgray;
+}
+
+.game-container{
+  background-color: $light-gray;
+  text-transform: uppercase;
+}
+
+.game-content{
+  position: relative;
+  overflow: hidden;
+  height: rem-calc(140);
+  .helmet{
+    position: absolute;
+    top: rem-calc(30);
+    img{
+      height: rem-calc(75);
+    }
+    &.away{
+      right: rem-calc(-30);
+    }
+    &.home{
+      left: rem-calc(-30);
+    }
+  }
+  .vs{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    background-color: $secondary;
+    font-weight: 700;
+    line-height: rem-calc(32);
+    padding: rem-calc(4);
+  }
+}
+
+.vs-container{
+  width: rem-calc(230);
+  margin: auto;
+  position: relative;
+  height: 100%;
+  .school{
+    font-weight: 700;
+    line-height: rem-calc(16);
+  }
+  .home-team, .away-team{
+    position: absolute;
+    width: rem-calc(92);
+    top: 40%;
+    transform: translateY(-50%);
+  }
+  .home-team{
+    text-align: right;
+    left: 0;
+  }
+  .away-team{
+    text-align: left;
+    right: 0;
+  }
+  .caption{
+    bottom: rem-calc(4);
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    text-align: center;
+  }
+}
+
