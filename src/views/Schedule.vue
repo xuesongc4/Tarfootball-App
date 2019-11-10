@@ -7,7 +7,7 @@
             </div>
         </header>
         <div class="schedule q-pa-sm">
-            <ScheduleCard :key="$index" v-for="(data, $index) in getSchedule" class="mt10 mb10" :data="data"></ScheduleCard>
+            <ScheduleCard :key="$index" v-for="(data, $index) in scheduleGame" class="mt10 mb10" :data="data"></ScheduleCard>
         </div>
     </q-page>
 </template>
@@ -26,7 +26,6 @@
         },
         data: function () {
             return {
-                scheduleID: [],
                 scheduleGame: []
             }
         },
@@ -36,10 +35,12 @@
         computed: mapGetters(['getSchedule']),
         methods: {
             ...mapActions(['fetchDataSchedule']),
-            getGames() {
-                this.scheduleID.forEach((data) => {
+        },
+        watch:{
+            getSchedule: function() {
+                this.getSchedule.forEach((data) => {
                     axios
-                        .get(`https://www.tarfootball.com/wp-json/gc_rest/v1/metaboxer/${data.id}/schedule-team`)
+                        .get(`https://www.tarfootball.com/wp-json/gc_rest/v1/metaboxer/${data}/schedule-team`)
                         .then(response => {
                             this.scheduleGame.push(response.data);
                         })
