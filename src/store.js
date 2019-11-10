@@ -7,11 +7,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     posts: [],
-    schedule: []
+    scheduleId: []
   },
   mutations: {
     setDataPosts: (state, fetchData) => (state.posts = fetchData),
-    setDataSchedule: (state, fetchData) => (state.schedule = fetchData)
+    setDataSchedule: (state, fetchData) => (state.scheduleId = fetchData)
   },
   actions: {
     async fetchDataPosts({commit}){
@@ -20,13 +20,20 @@ export default new Vuex.Store({
       commit('setDataPosts',response);
     },
     async fetchDataSchedule({commit}){
+      let filteredResponse = [];
       const response = await axios
           .get('https://www.tarfootball.com/wp-json/wp/v2/schedule?per_page=100');
-      commit('setDataSchedule',response);
+      response.data.forEach(async (schedule)=>{
+        if(schedule.team[0] === 15){
+          const response = await axios.get(`https://www.tarfootball.com/wp-json/gc_rest/v1/metaboxer/${schedule.id}/schedule-team`);
+          filteredResponse.push(response)
+        }
+      })
+      commit('setDataSchedule',filteredResponse);
     },
   },
   getters:{
     getPosts: (state) => state.posts,
-    getSchedule: (state) => state.schedule
+    getSchedule: (state) => state.scheduleId
   }
 })
