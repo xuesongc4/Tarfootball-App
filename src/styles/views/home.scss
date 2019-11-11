@@ -1,7 +1,7 @@
 .hero-bg{
   background: url("assets/hero-banner.jpg") center center no-repeat;
   background-size: cover;
-  border-bottom-right-radius: 50px;
+  border-bottom-right-radius: 60px;
   overflow: hidden;
   @media (min-width: $breakpoint){
     border-bottom-right-radius: 100px;
@@ -33,10 +33,11 @@
 .news {
   .q-card{
     box-shadow: none;
-    border-bottom-right-radius: 40px;
+    border-radius: 0;
+    border-bottom-right-radius: 60px;
     overflow: hidden;
     @media (min-width: $breakpoint){
-      border-bottom-right-radius: 80px;
+      border-bottom-right-radius: 100px;
     }
   }
   &-card {

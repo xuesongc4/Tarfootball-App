@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-Vue.use(Vuex)
+Vue.use(Vuex, axios)
 
 export default new Vuex.Store({
   state: {
@@ -34,14 +34,16 @@ export default new Vuex.Store({
     },
     async fetchDataRoster({commit}){
       let filteredResponse = [];
+      let sortedResponse = [];
       const response = await axios
           .get('https://www.tarfootball.com/wp-json/wp/v2/roster?per_page=100');
       response.data.forEach((roster)=>{
         if(roster.team[0] === 16){
           filteredResponse.push(roster)
         }
-      })
-      commit('setDataRoster',filteredResponse);
+      });
+      sortedResponse = filteredResponse.sort((a,b) => (Number(a.gc_metaboxer_data.no) > Number(b.gc_metaboxer_data.no))? 1: -1);
+      commit('setDataRoster',sortedResponse);
     },
   },
   getters:{

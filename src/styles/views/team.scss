@@ -1,0 +1,21 @@
+.roster-table{
+  font-size: 16px;
+  border-collapse:collapse;
+  tr:nth-child(even){
+    background-color: #eee;
+  }
+  a{
+    color: #015ea0;
+    font-weight: 700;
+  }
+  th{
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: left;
+    padding: 4px;
+  }
+  td{
+    font-size: 14px;
+    padding: 4px;
+  }
+}
