@@ -16,8 +16,8 @@
                 />
                 <q-route-tab
                         icon="group"
-                        label="Team"
-                        to="/team"
+                        label="Roster"
+                        to="/roster"
                         exact
                 />
             </q-tabs>

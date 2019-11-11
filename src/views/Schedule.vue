@@ -6,7 +6,7 @@
                 Schedule
             </div>
         </header>
-        <div class="schedule q-pa-sm">
+        <div class="schedule">
             <ScheduleCard :key="$index" v-for="(data, $index) in scheduleGame" class="mt10 mb10" :data="data"></ScheduleCard>
         </div>
     </q-page>
