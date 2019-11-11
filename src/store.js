@@ -26,8 +26,9 @@ export default new Vuex.Store({
       const response = await axios
           .get('https://www.tarfootball.com/wp-json/wp/v2/schedule?per_page=100');
       response.data.forEach((schedule)=>{
-        if(schedule.team[0] === 15){
-          filteredResponse.push(schedule.id)
+        if(schedule.team[0] === 16){
+          schedule.gc_metaboxer_data.link = schedule.link;
+          filteredResponse.push(schedule.gc_metaboxer_data)
         }
       })
       commit('setDataSchedule',filteredResponse);

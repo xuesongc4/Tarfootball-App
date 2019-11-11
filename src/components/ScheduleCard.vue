@@ -35,6 +35,9 @@
             </div>
         </div>
         <div class="game-description">
+            <div v-if="data.link">
+                <a :href="data.link" target="_blank">Read More</a>
+            </div>
         </div>
     </div>
 </template>
