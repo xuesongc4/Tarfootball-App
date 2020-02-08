@@ -1,5 +1,8 @@
 <template>
-    <q-page>
+    <q-page :class="[getLoaderState ? 'preloader' : null]">
+        <div v-if="getLoaderState" class="loader">
+            <img src="../assets/logo_new.png">
+        </div>
         <div class="hero-bg">
             <div class="hero flex column justify-between q-pa-sm">
                 <div>
@@ -17,7 +20,7 @@
         </div>
         <div class="news">
             <div class="title-2 q-pa-sm mt10">Tar Football News</div>
-            <q-card class="news-card mt10 mb10" v-for="(newsTile, $index) in getPosts.data" :key="$index">
+            <q-card class="news-card mt10 mb10" v-for="(newsTile) in getPosts.data" :key="newsTile.id">
                 <img class="news-card-bg" :src="newsTile._embedded['wp:featuredmedia'][0].link"
                      :alt="newsTile.title.rendered">
                 <div class="news-card-overlay"></div>
@@ -32,14 +35,21 @@
 </template>
 
 <script>
-    import {mapGetters, mapActions} from 'vuex';
+    import {mapActions} from 'vuex';
 
     export default {
         name: 'PageHome',
         mounted() {
             this.fetchDataPosts();
         },
-        computed: mapGetters(['getPosts']),
+        computed: {
+            getPosts(){
+                return this.$store.state.posts
+            },
+            getLoaderState(){
+                return !this.$store.state.loadState
+            }
+        },
         methods: {
             ...mapActions(['fetchDataPosts']),
             dateConvert(time) {

@@ -1,5 +1,8 @@
 <template>
-    <q-page>
+    <q-page :class="[getLoaderState ? 'preloader' : null]">
+        <div v-if="getLoaderState" class="loader">
+            <img src="../assets/logo_new.png">
+        </div>
         <header class="flex items-center">
             <img src="../assets/logo_sm.png">
             <div class="title-2">
@@ -44,7 +47,7 @@
 </style>
 
 <script>
-    import {mapGetters, mapActions} from 'vuex';
+    import { mapActions} from 'vuex';
 
     export default {
         name: 'PageTeam',
@@ -54,8 +57,13 @@
         mounted() {
             this.fetchDataRoster();
         },
-        computed: {
-            ...mapGetters(['getRoster'])
-        }
+        computed:{
+            getRoster(){
+                return this.$store.state.roster
+            },
+            getLoaderState(){
+                return !this.$store.state.loadState
+            }
+        },
     }
 </script>

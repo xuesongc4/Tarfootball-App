@@ -1,5 +1,8 @@
 <template>
-    <q-page>
+    <q-page :class="[getLoaderState ? 'preloader' : null]">
+        <div v-if="getLoaderState" class="loader">
+            <img src="../assets/logo_new.png">
+        </div>
         <header class="flex items-center">
             <img src="../assets/logo_sm.png">
             <div class="title-2">
@@ -16,7 +19,7 @@
 
 <script>
     import ScheduleCard from '@/components/ScheduleCard.vue';
-    import {mapGetters, mapActions} from 'vuex';
+    import { mapActions} from 'vuex';
 
     export default {
         name: 'PageAbout',
@@ -26,7 +29,14 @@
         mounted() {
             this.fetchDataSchedule()
         },
-        computed: mapGetters(['getSchedule']),
+        computed:{
+            getSchedule(){
+                return this.$store.state.scheduleId
+            },
+            getLoaderState(){
+                return !this.$store.state.loadState
+            }
+        },
         methods: {
             ...mapActions(['fetchDataSchedule']),
         }

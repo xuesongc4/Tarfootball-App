@@ -139,3 +139,41 @@ header{
   max-width: 1024px;
   margin: auto;
 }
+
+.preloader{
+  position: relative;
+}
+
+.preloader:before{
+  content:"";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.3);
+  z-index: 100;
+}
+
+.loader {
+  border: 10px solid white;
+  border-top: 10px solid #3498db;
+  border-bottom: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1000;
+  background-color: rgba(255,255,255,.7);
+}
+.loader img{
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
